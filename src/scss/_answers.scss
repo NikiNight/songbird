@@ -1,0 +1,24 @@
+.answers {
+    background-color: $color-block;
+    margin-bottom: $block-margin;
+}
+
+.answer {
+    padding: $inside-padding;
+    cursor: pointer;
+    border-bottom: 1px solid $color-text;
+    &:last-child {
+        border: none;
+    }
+    &_wrong {
+        background-color: $color-wrong;
+    }
+    &_correct {
+        background-color: $color-correct;
+    }
+}
+
+.info {
+    background-color: $color-block;
+    margin-bottom: $block-margin;
+}

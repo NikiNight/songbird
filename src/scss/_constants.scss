@@ -1,0 +1,22 @@
+$color-background: rgb(49, 49, 49);
+$color-text: rgb(238, 238, 238);
+$color-accent: rgb(107, 24, 146);
+$color-block: darken($color-background, 10%);
+$color-wrong: rgb(233, 87, 87);
+$color-correct: rgb(108, 192, 51);
+
+$font: "Open Sans", Verdana, sans-serif;
+
+$font-size-text: 1.6rem;
+$font-size-title: 3rem;
+$font-size-selection: 2rem;
+$font-size-uppercase: 1.3rem;
+
+$screen-desktop: 1100px;
+$screen-tablet: 768px;
+$screen-mobile: 414px;
+
+$block-padding: 15px;
+$block-margin: 20px;
+
+$inside-padding: 10px;

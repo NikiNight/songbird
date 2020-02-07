@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Songbird</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+    <link href="../dist/style.css" rel="stylesheet">
+</head>
+<!-- key 07461d9edc503c9147e7f8a58d6f0824 -->
+<!-- secret a8ca27815b9acea9 -->
+<body>
+    <div id="root">
+        <header class="header">
+            <div class="header__top-line">
+                <span class="logo">Songbird</span>
+                <div class="score">Score: <span>11</span></div>
+            </div>
+            <div class="header__bottom-line">
+                <ul class="topics">
+                    <li class="active">Разминка</li>
+                    <li>Воробьиные</li>
+                    <li>Лесные птицы</li>
+                    <li>Певчие птицы</li>
+                    <li>Хищные птицы</li>
+                    <li>Морские птицы</li>
+                </ul>
+            </div>
+        </header>
+        <div class="question">
+            <div class="bird">
+                <img src="https://www.dw.com/image/40645797_304.jpg" alt="Орёл" class="bird__image">
+                <div class="bird__body">
+                    <p class="bird__title">Орёл</p>
+                    <audio controls class="bird__voice">
+                        <source src="https://www.xeno-canto.org/sounds/uploaded/VROUALCTKG/XC520302-Crested%20Serpent%20Eagle%20%28Borneo%2C%20Kinabatangan%2C%20jun%2008%2C%201%29.MP3">
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div class="container-2-column">
+            <div class="answers">
+                <p class="answer answer_wrong">Птица 1</p>
+                <p class="answer answer_correct">Птица 2</p>
+                <p class="answer">Птица 3</p>
+                <p class="answer">Птица 4</p>
+                <p class="answer">Птица 5</p>
+                <p class="answer">Птица 6</p>
+            </div>
+            <div class="info">
+                <div class="bird">
+                    <img src="https://www.dw.com/image/40645797_304.jpg" alt="Орёл" class="bird__image">
+                    <div class="bird__body">
+                        <p class="bird__title">Орёл</p>
+                        <p class="bird__name"></p>
+                        <audio controls class="bird__voice">
+                            <source src="https://www.xeno-canto.org/sounds/uploaded/VROUALCTKG/XC520302-Crested%20Serpent%20Eagle%20%28Borneo%2C%20Kinabatangan%2C%20jun%2008%2C%201%29.MP3">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="button controls__next">Next Level</button>
+        </div>
+        <div class="results">
+            <p class="results__title">Поздравляю!</p>
+            <p class="results__text">Вы набрали <span>20</span> баллов из <span>30</span></p>
+            <p class="results__win">Вы объявляетесь знатоком птичьего мира!</p>
+            <button class="button results__button">Пройти ещё раз</button>
+        </div>
+        <footer class="footer">
+            (c) Viktoriya Vorozhun, 2020
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+.bird {
+    @extend %block-view;
+    display: flex;
+    @include media-tablet {
+        flex-direction: column;
+    }
+}
+
+.bird__image {
+    width: 200px;
+    .question & {
+        width: 500px;
+    }
+    @include media-tablet {
+        &, .question & {
+            width: 100%;
+        }
+    }
+}
+
+.bird__body {
+    flex-grow: 1;
+    padding: $block-padding;
+}
+
+.bird__title {
+    font-size: $font-size-title;
+    border-bottom: 1px solid $color-text;
+    padding-bottom: $block-padding;
+    margin-bottom: $block-margin;
+}
+
+.bird__voice {
+    width: 100%;
+}

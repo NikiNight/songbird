@@ -1,0 +1,19 @@
+.button {
+    background-color: $color-accent;
+    border: none;
+    padding: $inside-padding;
+    border-radius: 20px;
+    padding: $inside-padding $inside-padding*2;
+    text-transform: uppercase;
+    font-size: $font-size-uppercase;
+    color: $color-block;
+    transition: all .3s;
+    &:hover {
+        background-color: lighten($color-accent, 10%);
+    }
+}
+
+.controls {
+    text-align: center;
+    margin-bottom: $block-margin;
+}

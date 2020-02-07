@@ -1,0 +1,36 @@
+%flexy-header {
+    padding: $block-padding;
+}
+
+.header {
+    background-color: $color-block;
+    margin-bottom: $block-margin;
+}
+
+.header__top-line {
+    @extend %flexy-header;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__bottom-line {
+    @extend %flexy-header;
+    border-top: 1px solid $color-text;
+}
+
+.topics {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: $font-size-uppercase;
+    >.active {
+        color: $color-accent;
+    }
+    @include media-mobile {
+        flex-direction: column;
+        text-align: center;
+        li {
+            padding: $inside-padding;
+        }
+    }
+}
