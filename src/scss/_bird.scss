@@ -1,6 +1,7 @@
 .bird {
     @extend %block-view;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     @include media-tablet {
         flex-direction: column;
@@ -9,18 +10,18 @@
 
 .bird__image {
     width: 200px;
-    .question & {
-        width: 500px;
-    }
     @include media-tablet {
-        &, .question & {
-            width: 100%;
-        }
+        width: 100%;
     }
 }
 
+.bird__species {
+   margin-bottom: $block-padding;
+
+}
+
 .bird__body {
-    flex-grow: 1;
+    width: calc( 100% - 200px );
     padding: $block-padding;
 }
 
@@ -28,7 +29,11 @@
     font-size: $font-size-title;
     border-bottom: 1px solid $color-border;
     padding-bottom: $block-padding;
-    margin-bottom: $block-margin;
+    margin-bottom: $block-padding;
+}
+
+.bird__description {
+    flex-grow: 1;
 }
 
 .bird__voice {

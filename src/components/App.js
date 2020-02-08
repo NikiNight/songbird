@@ -336,18 +336,15 @@ export default class App extends React.Component {
       stageScore: Constants.MAX_ATTEMPT_POINT,
       maxScore: birdsData.length * Constants.MAX_ATTEMPT_POINT,
       appliedVariant: '',
-      selectedVariant: '',
-      isQuestionGuessed: false,
     };
   };
 
-  tryToGuess = (selectedVariant) => {
-    if (selectedVariant === this.appliedVariant) {
-      this.winStage();
-    }
-  }
-
   winStage = () => {
+    if(stage < birdsData.length) {
+      this.setState({
+        stage: this.state.stage++
+      })
+    }
 
   }
 
@@ -366,7 +363,7 @@ export default class App extends React.Component {
       <>
         <Header score={score} stage={stage} data={birdsData} />
         {appliedVariant && 
-         <Body data={birdsData[this.state.stage].data} appliedVariant={appliedVariant} isQuestionGuessed={isQuestionGuessed}/>
+         <Body data={birdsData[this.state.stage].data} appliedVariant={appliedVariant} />
         }
         <Result score={score} maxScore={maxScore} />
         <Footer />

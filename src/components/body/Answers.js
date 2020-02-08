@@ -4,17 +4,14 @@ import Answer from './Answer';
 export default class Answers extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
   }
 
   handleAnswerClick = (selectedVariant) => {
     if(selectedVariant===this.props.appliedVariant) {
-      this.props.handleAnswerClick(true);
+      this.props.handleAnswerClick(true, selectedVariant);
       return true
     } else {
-      this.props.handleAnswerClick(false);
+      this.props.handleAnswerClick(false, selectedVariant);
       return false
     }
   }
