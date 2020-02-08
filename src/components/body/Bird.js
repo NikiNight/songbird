@@ -1,16 +1,31 @@
 import React from 'react';
+import AudioPlayer from 'react-modular-audio-player';
+import TemplateBird from '../../img/template-bird.jpg';
 
-const Bird = (props) =>
-  // const { score } = props;
-  (
+const Bird = (props) => {
+  const playlist = [
+    {
+      src: 'https://www.xeno-canto.org/sounds/uploaded/VROUALCTKG/XC520302-Crested%20Serpent%20Eagle%20%28Borneo%2C%20Kinabatangan%2C%20jun%2008%2C%201%29.MP3',
+      title: 'Орёл',
+      artist: '',
+    },
+  ];
+
+  return (
     <div className="bird">
-      <img src="https://www.dw.com/image/40645797_304.jpg" alt="Орёл" className="bird__image" />
+      <img src={TemplateBird} alt="" className="bird__image" />
       <div className="bird__body">
         <p className="bird__title">Орёл</p>
-        <audio controls className="bird__voice">
-          <source src="https://www.xeno-canto.org/sounds/uploaded/VROUALCTKG/XC520302-Crested%20Serpent%20Eagle%20%28Borneo%2C%20Kinabatangan%2C%20jun%2008%2C%201%29.MP3" />
-        </audio>
+        <AudioPlayer
+          className="bird__voice"
+          audioFiles={playlist}
+          hideForward
+          hideLoop
+          hideRewind
+          hideName
+        />
       </div>
     </div>
   );
+};
 export default Bird;

@@ -1,16 +1,30 @@
 import React from 'react';
+import Answer from './Answer';
 
-const Answers = (props) =>
-// const { score } = props;
-  (
-    <div className="answers">
-      <p className="answer answer_wrong">Птица 1</p>
-      <p className="answer answer_correct">Птица 2</p>
-      <p className="answer">Птица 3</p>
-      <p className="answer">Птица 4</p>
-      <p className="answer">Птица 5</p>
-      <p className="answer">Птица 6</p>
-    </div>
-  );
+export default class Answers extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
 
-export default Answers;
+    }
+  }
+
+  handleAnswerClick = (selectedVariant) => {
+    if(selectedVariant===this.props.appliedVariant) {
+      this.props.handleAnswerClick(true);
+      return true
+    } else {
+      this.props.handleAnswerClick(false);
+      return false
+    }
+  }
+
+  render() {
+    const { data, appliedVariant } = this.props;
+    return (
+      <div className="answers">
+        {data.map((bird, i) => <Answer value={bird.name} key={bird.id} id={bird.id} handleClick={this.handleAnswerClick} />)}
+      </div>
+    );
+  }
+}

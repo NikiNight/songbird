@@ -1,6 +1,7 @@
 .bird {
     @extend %block-view;
     display: flex;
+    align-items: flex-start;
     @include media-tablet {
         flex-direction: column;
     }
@@ -25,7 +26,7 @@
 
 .bird__title {
     font-size: $font-size-title;
-    border-bottom: 1px solid $color-text;
+    border-bottom: 1px solid $color-border;
     padding-bottom: $block-padding;
     margin-bottom: $block-margin;
 }

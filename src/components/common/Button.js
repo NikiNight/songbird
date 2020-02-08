@@ -6,8 +6,8 @@ class Button extends React.Component {
   }
 
   render() {
-    const { buttonclass, value } = this.props;
-    return (<button className={`button ${buttonclass}`}>{value}</button>);
+    const { buttonclass, value, disabled, handleClick } = this.props;
+    return (<button type="button" className={`button ${buttonclass}`} disabled={disabled} onClick={handleClick} >{value}</button>);
   }
 }
 export default Button;

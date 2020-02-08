@@ -1,27 +1,22 @@
 import React from 'react';
+import Logo from '../../img/logo.png';
+import HeaderBottom from './HeaderBottom';
 
 const Header = (props) => {
-  const { score } = props;
+  const { score, stage, data } = props;
   return (
     <header className="header">
       <div className="header__top-line">
-        <span className="logo">Songbird</span>
+        <span className="logo">
+          <img src={Logo} alt="logo" />
+        </span>
         <div className="score">
           Score:
           {' '}
           <span>{score}</span>
         </div>
       </div>
-      <div className="header__bottom-line">
-        <ul className="topics">
-          <li className="active">Разминка</li>
-          <li>Воробьиные</li>
-          <li>Лесные птицы</li>
-          <li>Певчие птицы</li>
-          <li>Хищные птицы</li>
-          <li>Морские птицы</li>
-        </ul>
-      </div>
+      <HeaderBottom data={data} stage={stage} />
     </header>
   );
 };
