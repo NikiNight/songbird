@@ -331,26 +331,42 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      score: 0,
+      score: 30,
       stage: 0,
       stageScore: Constants.MAX_ATTEMPT_POINT,
       maxScore: birdsData.length * Constants.MAX_ATTEMPT_POINT,
       appliedVariant: '',
+      gameFinished: false,
     };
   };
 
   winStage = () => {
-    if(stage < birdsData.length) {
+    if(this.state.stage < birdsData.length-1) {
       this.setState({
-        stage: this.state.stage++
+        stage: this.state.stage + 1
+      })
+      this.generateQuestionNumber();
+    } else {
+      this.setState({
+        gameFinished: true
       })
     }
-
   }
 
   generateQuestionNumber = () => {
-    this.setState({appliedVariant: random(1, birdsData[this.state.stage].data.length)});
+    let randomVariantNumber = random(1, birdsData[this.state.stage].data.length);
+    this.setState({appliedVariant: randomVariantNumber});
+    console.log(randomVariantNumber);
   };
+
+  tryAgain = () => {
+    this.setState({
+      gameFinished: false,
+      score: 0,
+      stage: 0,
+    });
+    this.generateQuestionNumber();
+  }
 
   componentDidMount() {
     this.generateQuestionNumber();
@@ -358,14 +374,18 @@ export default class App extends React.Component {
 
 
   render() {
-    const { score, maxScore, stage, appliedVariant, isQuestionGuessed } = this.state;
+    const { score, maxScore, stage, appliedVariant, gameFinished } = this.state;
     return (
       <>
         <Header score={score} stage={stage} data={birdsData} />
-        {appliedVariant && 
-         <Body data={birdsData[this.state.stage].data} appliedVariant={appliedVariant} />
+        {
+          (appliedVariant && !gameFinished) &&
+          <Body key={stage} data={birdsData[this.state.stage].data} appliedVariant={appliedVariant} handleButtonClick={this.winStage} />
         }
-        <Result score={score} maxScore={maxScore} />
+        {
+          gameFinished && 
+          <Result score={score} maxScore={maxScore} handleButtonClick={this.tryAgain} />
+        }
         <Footer />
       </>
     );

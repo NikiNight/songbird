@@ -16,10 +16,6 @@ export default class Body extends React.Component {
     }
   }
 
-  handleButtonClick = () => {
-    console.log('Button Click');
-  }
-
   stopAudio = (audio) => {
     if (audio) {
       audio.pause();
@@ -53,6 +49,12 @@ export default class Body extends React.Component {
     }
   }
 
+  handleButtonClick = () => {
+    if(this.state.isQuestionGuessed) {
+      this.props.handleButtonClick();
+    }
+  }
+
   componentDidMount() {
     this.audioTrue = new Audio(AudioTrue);
     this.audioFalse = new Audio(AudioFalse);
@@ -61,15 +63,20 @@ export default class Body extends React.Component {
   render() {
     const { appliedVariant, data } = this.props;
     const { selectedVariant, isQuestionGuessed } = this.state;
-    let selectedBird = data.filter(bird => bird.id===selectedVariant);
-    let appliedBird = data.filter(bird => bird.id===appliedVariant);
+    let selectedBird = data.find(bird => bird.id===selectedVariant);
+    let appliedBird = data.find(bird => bird.id===appliedVariant);
+    const templateBird = {
+      name: '*****',
+      image: TemplateBird,
+      audio: appliedBird.audio,
+    }
     return (  
     <>
       <div className="question">
         {
           isQuestionGuessed
-          ? <Bird title={appliedBird[0].name} image={appliedBird[0].image}/>
-          : <Bird title={'*****'} image={TemplateBird}/>
+          ? <Bird data={appliedBird} />
+          : <Bird data={templateBird} />
         }
         
       </div>
@@ -77,7 +84,7 @@ export default class Body extends React.Component {
         <Answers data={data} appliedVariant={appliedVariant} handleAnswerClick={this.handleAnswerClick} />
         {
           !!selectedVariant 
-          ? <Bird title={selectedBird[0].name} image={selectedBird[0].image} species={selectedBird[0].species} description={selectedBird[0].description}/>
+          ? <Bird data={selectedBird} fullVariant={true} />
           : <TextPlaceholder />
         }
       </div>
