@@ -7,7 +7,7 @@ const HeaderBottom = (props) => {
     <div className="header__bottom-line">
       <ul className="topics">
         {
-            data.map((topic, i) => <Topic key={i} value={topic.family} className={`${i === stage ? 'active' : ''}`} />)
+            data.map((topic, i) => <Topic key={topic.family} value={topic.family} className={`${i === stage ? 'active' : ''}`} />)
           }
       </ul>
     </div>

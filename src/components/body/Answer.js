@@ -10,19 +10,17 @@ export default class Answer extends React.Component {
   }
 
   handleClick = () => {
-      if(this.props.handleClick(this.props.id)) {
-        this.setState({
-          isAnswerClicked: true,
-          isAnswerCorrect: true,
-        });
-      } else {
-        if (this.props.shouldUpdateClass) {
-          this.setState({
-            isAnswerClicked: true,
-            isAnswerCorrect: false,
-          })
-        }
-      }
+    if (this.props.handleClick(this.props.id)) {
+      this.setState({
+        isAnswerClicked: true,
+        isAnswerCorrect: true,
+      });
+    } else if (this.props.shouldUpdateClass) {
+      this.setState({
+        isAnswerClicked: true,
+        isAnswerCorrect: false,
+      });
+    }
   }
 
   render() {
@@ -30,7 +28,7 @@ export default class Answer extends React.Component {
     const { isAnswerClicked, isAnswerCorrect } = this.state;
     return (
       <p
-        className={`answer ${(isAnswerClicked ? (isAnswerCorrect ? 'answer_correct' : 'answer_wrong' ) : '')}`}
+        className={`answer ${(isAnswerClicked ? (isAnswerCorrect ? 'answer_correct' : 'answer_wrong') : '')}`}
         onClick={this.handleClick}
       >
         {value}

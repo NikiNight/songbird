@@ -3,7 +3,9 @@ import AudioPlayer from 'react-modular-audio-player';
 
 
 const Bird = (props) => {
-  const { image, name, species, description, audio } = props.data;
+  const {
+    image, name, species, description, audio,
+  } = props.data;
   const { fullVariant } = props;
   const playlist = [
     {
