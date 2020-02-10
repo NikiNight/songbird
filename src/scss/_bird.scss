@@ -16,13 +16,12 @@
 }
 
 .bird__species {
-   margin-bottom: $block-padding;
-
+   margin-bottom: $block-padding / 3;
 }
 
 .bird__body {
     width: calc( 100% - 200px );
-    padding: $block-padding;
+    padding-left: $block-padding;
 }
 
 .bird__title {
@@ -34,6 +33,7 @@
 
 .bird__description {
     flex-grow: 1;
+    margin-top: $block-padding;
 }
 
 .bird__voice {

@@ -1,7 +1,7 @@
 .container-2-column {
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: flex-start;
     >* {
         width: 49%;
     }

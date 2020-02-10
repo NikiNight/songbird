@@ -1,6 +1,8 @@
 .answers {
     background-color: $color-block;
     margin-bottom: $block-margin;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
 }
 
 .answer {
@@ -9,6 +11,12 @@
     border-bottom: 1px solid $color-border;
     &:last-child {
         border: none;
+        border-bottom-right-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+    }
+    &:first-child {
+        border-top-right-radius: $border-radius;
+        border-top-left-radius: $border-radius;
     }
     &_wrong {
         background-color: $color-wrong;

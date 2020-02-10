@@ -16,6 +16,18 @@ export default class Body extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.audioTrue = new Audio(AudioTrue);
+    this.audioFalse = new Audio(AudioFalse);
+  }
+
+  stopAudio = (audio) => {
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0.0;
+    }
+  }
+
   runAudioSignal = (isQuestionGuessed) => {
     this.stopAudio(this.audioTrue);
     this.stopAudio(this.audioFalse);
@@ -49,17 +61,6 @@ export default class Body extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.audioTrue = new Audio(AudioTrue);
-    this.audioFalse = new Audio(AudioFalse);
-  }
-
-  stopAudio = (audio) => {
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0.0;
-    }
-  }
 
   render() {
     const { appliedVariant, data } = this.props;
