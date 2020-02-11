@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Bird from './Bird';
 import Answers from './Answers';
 import Button from '../common/Button';
@@ -45,6 +46,7 @@ export default class Body extends React.Component {
   }
 
   handleAnswerClick = (isQuestionGuessed, selectedVariant) => {
+    const { handleAnswerClick } = this.props;
     this.runAudioSignal(isQuestionGuessed);
     this.setState({
       selectedVariant,
@@ -52,12 +54,14 @@ export default class Body extends React.Component {
     if (isQuestionGuessed) {
       this.applyQuestionGuess();
     }
-    this.props.handleAnswerClick(isQuestionGuessed);
+    handleAnswerClick(isQuestionGuessed);
   }
 
   handleButtonClick = () => {
-    if (this.state.isQuestionGuessed) {
-      this.props.handleButtonClick();
+    const { isQuestionGuessed } = this.state;
+    const { handleButtonClick } = this.props;
+    if (isQuestionGuessed) {
+      handleButtonClick();
     }
   }
 
@@ -83,7 +87,11 @@ export default class Body extends React.Component {
 
         </div>
         <div className="container-2-column">
-          <Answers data={data} appliedVariant={appliedVariant} handleAnswerClick={this.handleAnswerClick} />
+          <Answers
+            data={data}
+            appliedVariant={appliedVariant}
+            handleAnswerClick={this.handleAnswerClick}
+          />
           {
           selectedVariant
             ? <Bird data={selectedBird} fullVariant />
@@ -91,9 +99,45 @@ export default class Body extends React.Component {
         }
         </div>
         <div className="controls">
-          <Button buttonclass="controls__next" value="Следующий уровень" disabled={!isQuestionGuessed} handleClick={this.handleButtonClick} />
+          <Button
+            buttonclass="controls__next"
+            value="Следующий уровень"
+            disabled={!isQuestionGuessed}
+            handleClick={this.handleButtonClick}
+          />
         </div>
       </>
     );
   }
 }
+
+Body.propTypes = {
+  appliedVariant: PropTypes.number,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      audio: PropTypes.string,
+      description: PropTypes.string,
+      id: PropTypes.number,
+      image: PropTypes.string,
+      name: PropTypes.string,
+      species: PropTypes.string,
+    }),
+  ),
+  handleAnswerClick: PropTypes.func,
+  handleButtonClick: PropTypes.func,
+};
+
+Body.defaultProps = {
+  appliedVariant: '',
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      audio: '',
+      description: '',
+      image: '',
+      name: '*****',
+      species: '',
+    }),
+  ),
+  handleAnswerClick: PropTypes.func,
+  handleButtonClick: PropTypes.func,
+};

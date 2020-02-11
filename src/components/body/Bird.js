@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AudioPlayer from 'react-modular-audio-player';
-
 
 const Bird = (props) => {
   const {
-    image, name, species, description, audio,
-  } = props.data;
+    data: {
+      image, name, species, description, audio,
+    },
+  } = props;
   const { fullVariant } = props;
   const playlist = [
     {
@@ -37,4 +39,27 @@ const Bird = (props) => {
     </div>
   );
 };
+
 export default Bird;
+
+Bird.propTypes = {
+  data: PropTypes.shape({
+    audio: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    species: PropTypes.string,
+  }),
+  fullVariant: PropTypes.bool,
+};
+
+Bird.defaultProps = {
+  data: PropTypes.shape({
+    audio: '',
+    description: '',
+    image: '',
+    name: '*****',
+    species: '',
+  }),
+  fullVariant: false,
+};

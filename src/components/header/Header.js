@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from '../../img/logo.png';
 import HeaderBottom from './HeaderBottom';
 
@@ -22,3 +23,32 @@ const Header = (props) => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      audio: PropTypes.string,
+      description: PropTypes.string,
+      id: PropTypes.number,
+      image: PropTypes.string,
+      name: PropTypes.string,
+      species: PropTypes.string,
+    }),
+  ),
+  score: PropTypes.number,
+  stage: PropTypes.number,
+};
+
+Header.defaultProps = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      audio: '',
+      description: '',
+      image: '',
+      name: '*****',
+      species: '',
+    }),
+  ),
+  score: 0,
+  stage: 0,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Topic = (props) => {
   const { value, className } = props;
@@ -8,3 +9,13 @@ const Topic = (props) => {
 };
 
 export default Topic;
+
+Topic.propTypes = {
+  className: PropTypes.string,
+  value: PropTypes.string,
+};
+
+Topic.defaultProps = {
+  className: '',
+  value: '',
+};

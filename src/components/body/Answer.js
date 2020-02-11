@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Answer extends React.Component {
   constructor(props) {
@@ -10,12 +11,13 @@ export default class Answer extends React.Component {
   }
 
   handleClick = () => {
-    if (this.props.handleClick(this.props.id)) {
+    const { handleClick, shouldUpdateClass, id } = this.props;
+    if (handleClick(id)) {
       this.setState({
         isAnswerClicked: true,
         isAnswerCorrect: true,
       });
-    } else if (this.props.shouldUpdateClass) {
+    } else if (shouldUpdateClass) {
       this.setState({
         isAnswerClicked: true,
         isAnswerCorrect: false,
@@ -23,16 +25,41 @@ export default class Answer extends React.Component {
     }
   }
 
+  checkButtonClass = () => {
+    const { isAnswerClicked, isAnswerCorrect } = this.state;
+    if (isAnswerClicked) {
+      if (isAnswerCorrect) {
+        return 'answer_correct';
+      }
+      return 'answer_wrong';
+    }
+    return '';
+  }
+
   render() {
     const { value } = this.props;
-    const { isAnswerClicked, isAnswerCorrect } = this.state;
     return (
-      <p
-        className={`answer ${(isAnswerClicked ? (isAnswerCorrect ? 'answer_correct' : 'answer_wrong') : '')}`}
+      <button
+        type="button"
+        className={`answer ${this.checkButtonClass()}`}
         onClick={this.handleClick}
       >
         {value}
-      </p>
+      </button>
     );
   }
 }
+
+Answer.propTypes = {
+  shouldUpdateClass: PropTypes.bool,
+  handleClick: PropTypes.func,
+  id: PropTypes.number,
+  value: PropTypes.string,
+};
+
+Answer.defaultProps = {
+  shouldUpdateClass: true,
+  handleClick: PropTypes.func,
+  id: '',
+  value: '',
+};
