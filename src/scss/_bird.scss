@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     @include media-tablet {
-        flex-direction: column;
+        display: block;
     }
 }
 
