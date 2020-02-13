@@ -1,0 +1,22 @@
+.results {
+    @extend %block-view;
+    text-align: center;
+}
+
+.results__title {
+    font-size: $font-size-title;
+    margin-bottom: $block-margin;
+}
+
+.results__text {
+    margin-bottom: $block-margin;
+    span {
+        font-weight: bold;
+    }
+}
+
+.results__win {
+    margin-bottom: $block-margin;
+    font-size: $font-size-uppercase;
+    text-transform: uppercase;
+}

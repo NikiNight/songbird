@@ -1,0 +1,46 @@
+.answers {
+    background-color: $color-block;
+    margin-bottom: $block-margin;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+}
+
+.answer {
+    background: none;
+    border: none;
+    display: block;
+    padding: $inside-padding;
+    cursor: pointer;
+    border-bottom: 1px solid $color-border;
+    width: 100%;
+    text-align: left;
+    font-family: $font;
+    font-weight: bold;
+    font-size: $font-size-text;
+    color: $color-text;
+    transition: .3s;
+
+    &:hover {
+        color: $color-accent;
+    }
+    &:last-child {
+        border: none;
+        border-bottom-right-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+    }
+    &:first-child {
+        border-top-right-radius: $border-radius;
+        border-top-left-radius: $border-radius;
+    }
+    &_wrong {
+        background-color: $color-wrong;
+    }
+    &_correct {
+        background-color: $color-correct;
+    }
+}
+
+.info {
+    background-color: $color-block;
+    margin-bottom: $block-margin;
+}

@@ -1,0 +1,7 @@
+%block-view {
+    padding: $block-padding;
+    margin-bottom: $block-margin;
+    background-color: $color-block;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+}

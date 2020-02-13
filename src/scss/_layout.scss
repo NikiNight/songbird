@@ -1,0 +1,14 @@
+.container-2-column {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    >* {
+        width: 49%;
+    }
+    @include media-mobile {
+        display: block;
+        >* {
+            width: 100%;
+        }
+    }
+}

@@ -1,33 +1,56 @@
 {
-  "name": "rsapp-task-template",
+  "name": "songbird",
   "version": "1.0.0",
-  "description": "Template for rsapp task",
+  "description": "recognition bird by their voices quiz",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha test",
-    "postinstall": "node scripts/postinstall.js",
-    "rename": "node scripts/rename.js"
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.0-beta.0",
+    "eslint-cli": "^1.1.1",
+    "lodash": "^4.17.15",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.19",
+    "react-modular-audio-player": "^1.2.0"
   },
-  "engines": {
-    "node": "<=12"
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-eslint": "^10.0.3",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "prettier": "1.19.1",
+    "prop-types": "^15.7.2",
+    "sass-loader": "^7.3.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "serve": "webpack-dev-server --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylelint": "stylelint \"./src/**/*.scss\"",
+    "eslint": "eslint \"./src/**/*.js\" --fix",
+    "prettier": "prettier --check src/**/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shastel/rsapp-task-template.git"
+    "url": "git+https://github.com/ViktoriyaVorozhun/songbird.git"
   },
-  "author": "max@shas.tel",
+  "author": "ViktoriyaVorozhun",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shastel/rsapp-task-template/issues"
+    "url": "https://github.com/ViktoriyaVorozhun/songbird/issues"
   },
-  "homepage": "https://github.com/Shastel/rsapp-task-template#readme",
-  "dependencies": {
-    "chai": "^4.2.0",
-    "colors": "^1.4.0",
-    "mocha": "^6.2.2",
-    "semver": "^6.3.0"
-  },
-  "devDependencies": {
-    "is-valid-npm-name": "0.0.5"
-  }
+  "homepage": "https://github.com/ViktoriyaVorozhun/songbird#readme"
 }

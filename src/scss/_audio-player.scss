@@ -1,0 +1,25 @@
+.audio-player {
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: $font-size-text;
+    width: 100% !important;
+    filter: invert(100%);
+}
+
+.audio-player-volume {
+    display: none !important;
+}
+
+.audio-player-seeker {
+    flex-grow: 1;
+    width: auto !important;
+}
+
+.player-img {
+    height: 4rem !important;
+    margin-right: $block-margin !important;
+}
+
+.audio-player-time {
+    margin-left: $block-margin !important;
+}

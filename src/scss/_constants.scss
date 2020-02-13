@@ -1,0 +1,25 @@
+$color-background: rgb(49, 49, 49);
+$color-text: rgb(238, 238, 238);
+$color-accent: rgb(107, 24, 146);
+$color-block: darken($color-background, 10%);
+$color-wrong: rgb(233, 87, 87);
+$color-correct: rgb(108, 192, 51);
+$color-border: #3d3d3d;
+
+$font: 'Amatic SC', cursive;
+
+$font-size-text: 2.0rem;
+$font-size-title: 5rem;
+$font-size-selection: 2.5rem;
+$font-size-uppercase: 2.0rem;
+
+$screen-desktop: 1100px;
+$screen-tablet: 768px;
+$screen-mobile: 414px;
+
+$block-padding: 15px;
+$block-margin: 20px;
+
+$border-radius: 5px;
+
+$inside-padding: 10px;
